@@ -1,0 +1,4 @@
+rootProject.name = 'distributed-transaction-demo'
+include 'mysql-xa-demo'
+include 'atomikos-xa-demo'
+

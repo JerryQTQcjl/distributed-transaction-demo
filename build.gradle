@@ -1,0 +1,30 @@
+buildscript {
+    dependencies {
+        classpath "gradle.plugin.com.thinkimi.gradle:mybatis-generator-plugin:2.4"
+    }
+}
+
+plugins {
+    id 'java'
+}
+
+group = 'com.jl.demo'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+subprojects {
+    apply from: "$rootDir/mybatis.gradle"
+    apply plugin: "com.thinkimi.gradle.MybatisGenerator"
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}

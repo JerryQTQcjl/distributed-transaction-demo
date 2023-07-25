@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.jl.demo'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation platform('org.springframework.boot:spring-boot-dependencies:2.7.5')
+    implementation 'com.atomikos:transactions-jdbc:6.0.0'
+    implementation 'com.atomikos:transactions-jta:6.0.0'
+    implementation 'javax.transaction:jta:1.1'
+    implementation 'com.alibaba:druid:1.2.18'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-test'
+    implementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.1'
+    implementation 'org.springframework.boot:spring-boot'
+    implementation 'org.springframework:spring-tx'
+    implementation 'mysql:mysql-connector-java:8.0.33'
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+mybatisGenerator {
+    verbose = true
+    configFile = 'src/main/resources/generatorConfig.xml'
+    mybatisProperties = project.ext.mybatisProperties
+}
